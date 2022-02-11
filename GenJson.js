@@ -115,6 +115,7 @@ window.addEventListener('load', async function () {
         document.getElementById('newoptionjson').select();
         var targetText = document.getElementsByClassName('newoptionjson').item(0);
         GM_setClipboard(targetText.value);
+        //调用接口
         {
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
@@ -130,7 +131,7 @@ window.addEventListener('load', async function () {
             console.log(JSON.stringify(vo));
             GM_xmlhttpRequest({
                 method: "POST",
-                url: "http://192.168.1.77:8080/dvs/compent",
+                url: "http://192.168.1.76:9090/dvs/compent",
                 data: JSON.stringify(vo),
                 headers: {
                     "token": "11",
